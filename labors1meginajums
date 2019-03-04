@@ -1,1 +1,22 @@
 
+
+
+
+
+Im=[0.072 0.092 0.142 0.164 0.2 0.22 0.24 0.262 0.27 0.28];
+Um=[0.4 0.8 2 2.8 3.6 4.4 5.2 6 6.4 6.8];
+
+V=min(Im):0.01:max(Im);
+C=polyfit(Im, Um, 5);
+%izvēlas polinoma kārtu
+
+I=polyval(C,V);
+%C(1)*V.^2 + C(2)*V.^1 + C(3)*V.^0
+
+plot(Im,Um, 'k*',V,I)
+
+
+xlabel('U,V')
+ylabel('I, A')
+title('Grafiks')
+grid on
