@@ -6,9 +6,11 @@ Im=[10 35 55 60 190;
 Imv=mean(Im);
 
 V=min(Vm):0.01:max(Vm);
-C=polyfit(Vm, Imv, 3) %izvēlas polinoma kārtu
+C=polyfit(Vm, Imv, 3);
+%izvēlas polinoma kārtu
 %[1 2 3];
-I=polyval(C,V);%C(1)*V.^2 + C(2)*V.^1 + C(3)*V.^0;
+I=polyval(C,V);
+%C(1)*V.^2 + C(2)*V.^1 + C(3)*V.^0;
 plot(Vm,Imv, 'k*',V,I)
 
 xlabel('U,V')
