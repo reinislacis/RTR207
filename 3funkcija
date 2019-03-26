@@ -1,0 +1,23 @@
+dt=0.01;
+
+
+t1=0:dt:1;
+t2=1:dt:2;
+f2=1.25;
+t3=2+dt:dt:3;
+
+
+y1=zeros(size(t1));   %0*t1;
+y2=sin(2*pi*(t2-1)*f2); 
+k=-2;
+deltaT=2.5;
+y3=k*(t3-deltaT);
+
+
+
+t=[t1,t2,t3];
+y=[y1,y2,y3];
+
+
+plot(t,y)
+grid on
