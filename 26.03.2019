@@ -1,0 +1,99 @@
+>> t=0:0.01:2;
+>> y=sin(2*pi*t);
+>> plot(t,y)
+>> y=sin(2*pi*t*3);
+>> plot(t,y)
+>> y=sin(2*pi*t*3-pi/4);
+>> plot(t,y)
+>> y=sin(2*pi*t*3);
+>> plot(t,y)
+>> y=exp(-t/0.8);
+>> plot(t,y)
+>> y=exp(-t/0.8).*sin(2*pi*t*3);
+>> plot(t,y)
+>> y1=exp(-t/0.8).*sin(2*pi*t*3);
+>> y1=1+exp(-t/0.8).*sin(2*pi*t*3);
+>> plot(t,y,1,y1,'r-')
+>> plot(t,y,1,y1,'r- -')
+Error using plot
+Error in color/linetype argument.
+ 
+>> plot(t,y,1,y1,'r--')
+>> plot(t,y,t,y1,'r--')
+>> y1=3*exp(-t/0.8).*sin(2*pi*t*3); %izmaina amplitūdu
+>> plot(t,y,t,y1,'r--')
+>> y2=3*exp(-t/0.8).*sin(2*pi*t*3); %izmaina amplitūdu
+>> plot(t,y,t,y2,'r--')
+>> y2=1+3*exp(-t/0.8).*sin(2*pi*t*3); %izmaina amplitūdu
+>> plot(t,y,t,y2,'r--')
+>> y3=exp(-(2*t)/0.8).*sin(2*pi*(2*t)*3); %pa x asi izstiepj
+>> plot(t,y,t,y3,'r--')
+>> y3=exp(-(2*t)/0.8).*sin(2*pi*(2*t)*3); %pa x asi manipulācija
+>> plot(t,y,t,y3,'r--')
+>> f=inline('sin(2*pi*t'); 
+>> f
+
+f =
+
+     Inline function:
+     f(t) = sin(2*pi*t
+
+>> f=inline('sin(2*pi*t)');
+>> f
+
+f =
+
+     Inline function:
+     f(t) = sin(2*pi*t)
+
+>> plot(t,f(t))
+>> f=inline('exp(-(t)/0.8).*sin(2*pi*(t)','t','tau'));
+ f=inline('exp(-(t)/0.8).*sin(2*pi*(t)','t','tau'));
+                                                  ↑
+Error: Invalid expression. When calling a function or indexing a variable, use
+parentheses. Otherwise, check for mismatched delimiters.
+ 
+>> f=inline('exp(-(t)/0.8).*sin(2*pi*(t)','t','tau');
+>> f
+
+f =
+
+     Inline function:
+     f(t,tau) = exp(-(t)/0.8).*sin(2*pi*(t)
+
+>> f(1,1)
+Error using inlineeval (line 14)
+Error in inline expression ==> exp(-(t)/0.8).*sin(2*pi*(t)
+ Error: This statement is incomplete.
+
+Error in inline/subsref (line 23)
+    INLINE_OUT_ = inlineeval(INLINE_INPUTS_, INLINE_OBJ_.inputExpr,
+    INLINE_OBJ_.expr);
+ 
+>> f=inline('exp(-(t)/0.8).*sin(2*pi*(t))','t','tau');
+>> f
+
+f =
+
+     Inline function:
+     f(t,tau) = exp(-(t)/0.8).*sin(2*pi*(t))
+
+>> f(1,1)
+
+ans =
+
+  -7.0173e-17
+
+>> plot(t,f(t,0.8))
+>> plot(t,f(t,0.8))
+>> 
+>> 
+>> %ja pieskaita konstanti - paceļ vai nolaiž grafiku
+>> %ja piereizina konstanti - mainas platums laikam :D
+>> 
+>> 
+>> t4=0.3:0.02:2;
+>> y4=f(t4,0.8);
+>> plot(t4,y4) %sākas citā vietā nekā t un y
+>> y4=f(t4-0.3,0.8);
+>> plot(t4,y4) %uzskatāmi nobīdīta pa x asi par izvēlēto lielumu
