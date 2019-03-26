@@ -1,0 +1,16 @@
+t1=0:dt:1;
+t2=1:dt:2;
+f2=1.25;
+
+
+y1=zeros(size(t1));   %0*t1;
+y2=sin(2*pi*(t2-1)*f2); 
+%pie t1 piereizina lai noteiktu grafika beigas
+%ja sākas no kāda konkrēta skaitļa, piemēram no 1 sekundes, pie t1 atņem 1
+
+t=[t1,t2];
+y=[y1,y2];
+
+
+plot(t,y)
+grid on
