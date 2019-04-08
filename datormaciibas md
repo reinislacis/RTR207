@@ -1,0 +1,55 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\pgfplotsset{%
+every tick label/.append style = {font=\scriptsize},
+every axis label/.append style = {font=\scriptsize},
+compat=1.15
+}
+\title{1819-108-C1-W10-HW}
+\author{K ̄arlis Kreilis}
+\date{April 2019}
+\begin{document}
+\maketitle
+\begin{center}
+\huge{Activation Functions}
+\end{center}
+2
+\begin{itemize}
+\item Id $y=x$.
+\item Sigmoid $y=\frac{1}{1+ e^{-x}}$.
+\item tanh $y=\frac{e^{2x}-1}{e^{2x}+1}$.
+\item Treshold $y=1_{x\geq \beta}$.
+\item ReLu $y= max(0,x).$
+\end{itemize}
+Using LaTeX code:
+\begin{tikzpicture}
+\begin{axis}[grid=major, xmin=-10, xmax=10, ymin=-2.5, ymax=2.5,
+xlabel=$x$, ylabel={$y(x)$},
+xtick = {-10,-8,...,10}, ytick = {-2,-1,...,2},
+scale=1, restrict y to domain=-10:10]
+\addplot[black, samples=10,domain=-10:10]
+plot (\x, {\x});
+\addplot[red, samples=100, smooth,domain=-10:10]
+plot (\x, {1 / (1+exp(-\x)} );
+\addplot[blue, samples=100, smooth,domain=-10:10]
+plot (\x, { (exp(2*\x)-1) / (exp(2*\x)+1)} );
+\addplot[green, samples=100, smooth,domain=-10:1]
+plot (\x, {0});
+\addplot[green, samples=100, smooth,domain=1:10]
+plot (\x, {1});
+\addplot [smooth, green] coordinates {
+(1,0)
+(1,1)};
+\addplot[pink, smooth, domain=-10:0]
+plot (\x, {0});
+\addplot[pink, smooth, domain=0:10]
+plot (\x, {\x});
+\end{axis}
+\end{tikzpicture}
+\noindent Using MATLAB code:
+\includegraphics[scale=0.47]{ActivationFunctions.jpg}
+Using Matplotlib code:
+\includegraphics[scale=1]{matplotli
