@@ -10,10 +10,10 @@ global Ein i0 a R;
 Ein=100; %dots
 i0=1; %dots
 a=1;
-R=10;
+R=10; %laikam vienmēr būs 10
 
 t=0:0.01:1;
-eint=100*sin(2*pi*t*2);
+eint=100*sin(2*pi*t*2); %3 labora funkcija
 Urt=[];
 
 for Ein=eint;
