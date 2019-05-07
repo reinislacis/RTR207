@@ -1,0 +1,26 @@
+% Ein=Ud+Ur
+% ir=Ur/R
+% id=i0*(exp(a*Ud)-1)  tas kas dots labrotorijas darbā
+% id=i0*(exp(a*(Ein-Ur))-1)
+% i0*(exp(a*(Ein-Ur))-1)-Ur/R=0
+
+
+%maiņspriegums
+global Ein i0 a R;
+Ein=100; %dots
+i0=1; %dots
+a=1;
+R=10;
+
+t=0:0.01:1;
+eint=100*sin(2*pi*t*2);
+Urt=[];
+
+for Ein=eint;
+   ur=newmet('funx','fund');
+   Urt=[Urt,ur];
+end
+
+plot(t, eint, t, Urt, 'r--')
+
+%ur=newmet('funx','fund')
