@@ -7,3 +7,5 @@ vid=(g1+g2+g3+g4)/4
 
 t=0:0.01:4;
 %plot(t, fja(t),t, vid*ones(size(t)),'r--')
+
+šitas ir ja zin funkciju
