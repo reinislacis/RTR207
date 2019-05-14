@@ -1,0 +1,38 @@
+
+>> int(sin(x))
+ 
+ans =
+ 
+-cos(x)
+ 
+>> int(sin(2*pi*x), x,0,1)
+ 
+ans =
+ 
+0
+ 
+>> t=0:0.01:1;
+>> plot(t, sin(2*pi*t))
+>> t=0:0.01:1.5;
+>> plot(t, sin(2*pi*t))
+>> int(sin(2*pi*x), x,0,1.5)/1.5
+ 
+ans =
+ 
+2/(3*pi)
+ 
+>> double(int(sin(2*pi*x), x,0,1.5)/1.5)
+
+ans =
+
+    0.2122
+
+>> vid=
+>> 
+>> 
+>> 
+>> ef=double(sqrt(int(sin(2*pi*x)^2,x,0,1)/1))
+
+ef =
+
+    0.7071
